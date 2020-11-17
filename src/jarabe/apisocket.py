@@ -32,14 +32,14 @@ from jarabe.model import session
 from jarabe.journal.objectchooser import ObjectChooser
 
 
-class StreamMonitor(object):
+class StreamMonitor():
 
     def __init__(self):
         self.on_data = None
         self.on_close = None
 
 
-class API(object):
+class API():
 
     def __init__(self, client):
         self._client = client
@@ -246,7 +246,7 @@ class DatastoreAPI(API):
                                 error_handler=error_handler)
 
 
-class APIClient(object):
+class APIClient():
 
     def __init__(self, session):
         self._session = session
@@ -284,7 +284,7 @@ class APIClient(object):
         self._session.send_message(data, binary=True)
 
 
-class APIServer(object):
+class APIServer():
 
     def __init__(self):
         self._stream_monitors = {}

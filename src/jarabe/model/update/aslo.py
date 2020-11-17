@@ -142,7 +142,7 @@ class _UpdateChecker(GObject.GObject):
         self.emit('check-complete', result)
 
 
-class AsloUpdater(object):
+class AsloUpdater():
     """
     Track state while querying Activites.SugarLabs.Org for activity updates.
     """

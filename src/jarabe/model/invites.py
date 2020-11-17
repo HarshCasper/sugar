@@ -45,7 +45,7 @@ CONNECTION_INTERFACE_ACTIVITY_PROPERTIES = \
 _instance = None
 
 
-class BaseInvite(object):
+class BaseInvite():
     """Invitation to shared activity or private 1-1 Telepathy channel"""
 
     def __init__(self, dispatch_operation_path, handle, handler):

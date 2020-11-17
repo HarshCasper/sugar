@@ -366,7 +366,7 @@ def is_sugar_adhoc_network(ssid):
     return ssid.startswith(b"Ad-hoc Network")
 
 
-class WirelessSecurity(object):
+class WirelessSecurity():
 
     def __init__(self):
         self.key_mgmt = None
@@ -396,7 +396,7 @@ class WirelessSecurity(object):
         return wireless_security
 
 
-class Wireless(object):
+class Wireless():
     nm_name = '802-11-wireless'
 
     def __init__(self):
@@ -419,7 +419,7 @@ class Wireless(object):
         return wireless
 
 
-class OlpcMesh(object):
+class OlpcMesh():
     nm_name = '802-11-olpc-mesh'
 
     def __init__(self, channel, anycast_addr):
@@ -437,7 +437,7 @@ class OlpcMesh(object):
         return ret
 
 
-class ConnectionSettings(object):
+class ConnectionSettings():
 
     def __init__(self):
         self.id = None
@@ -456,7 +456,7 @@ class ConnectionSettings(object):
         return connection
 
 
-class IP4Config(object):
+class IP4Config():
 
     def __init__(self):
         self.method = None
@@ -468,7 +468,7 @@ class IP4Config(object):
         return ip4_config
 
 
-class Serial(object):
+class Serial():
 
     def __init__(self):
         self.baud = None
@@ -482,7 +482,7 @@ class Serial(object):
         return serial
 
 
-class Ppp(object):
+class Ppp():
 
     def __init__(self):
         pass
@@ -493,7 +493,7 @@ class Ppp(object):
         return ppp
 
 
-class Gsm(object):
+class Gsm():
 
     def __init__(self):
         self.apn = None
@@ -519,7 +519,7 @@ class Gsm(object):
         return gsm
 
 
-class Settings(object):
+class Settings():
 
     def __init__(self, wireless_cfg=None):
         self.connection = ConnectionSettings()
@@ -543,7 +543,7 @@ class Settings(object):
         return settings
 
 
-class SettingsGsm(object):
+class SettingsGsm():
 
     def __init__(self):
         self.connection = ConnectionSettings()
@@ -564,7 +564,7 @@ class SettingsGsm(object):
         return settings
 
 
-class SecretsResponse(object):
+class SecretsResponse():
     """Intermediate object to report the secrets from the dialog
     back to the connection object and which will inform NM
     """
@@ -845,7 +845,7 @@ class Connection(GObject.GObject):
         return self._connection.object_path
 
 
-class Connections(object):
+class Connections():
 
     def __init__(self):
         self._bus = dbus.SystemBus()

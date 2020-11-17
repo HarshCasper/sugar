@@ -26,7 +26,7 @@ from gi.repository import Gtk
 from jarabe.util.downloader import Downloader
 
 
-class _HttpRangeFileObject(object):
+class _HttpRangeFileObject():
 
     def __init__(self, url):
         self._url = url

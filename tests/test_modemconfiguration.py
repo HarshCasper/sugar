@@ -145,7 +145,7 @@ class ServiceProvidersTest(unittest.TestCase):
                     self.assertEqual(plan2.idx, plan.idx)
 
 
-class FakeConfClient(object):
+class FakeConfClient():
 
     def __init__(self, **kwargs):
         self.store = {

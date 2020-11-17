@@ -27,7 +27,7 @@ _OPTIONS_KEY = 'options'
 _MODEL_KEY = 'model'
 
 
-class KeyboardManager(object):
+class KeyboardManager():
     def __init__(self, display):
         self._engine = Xkl.Engine.get_instance(display)
         self._configregistry = Xkl.ConfigRegistry.get_instance(self._engine)

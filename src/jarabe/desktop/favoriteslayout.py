@@ -33,7 +33,7 @@ _CELL_SIZE = 4
 _BASE_SCALE = 1000
 
 
-class Layout(object):
+class Layout():
 
     def __init__(self):
         pass

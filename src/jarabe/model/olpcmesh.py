@@ -26,7 +26,7 @@ from jarabe.model.network import OlpcMesh as OlpcMeshSettings
 _XS_ANYCAST = '\xc0\x27\xc0\x27\xc0\x00'
 
 
-class OlpcMeshManager(object):
+class OlpcMeshManager():
 
     def __init__(self, mesh_device):
         self._bus = dbus.SystemBus()

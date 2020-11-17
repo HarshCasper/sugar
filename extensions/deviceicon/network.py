@@ -902,7 +902,7 @@ class GsmDeviceView(TrayIcon):
         return True
 
 
-class WirelessDeviceObserver(object):
+class WirelessDeviceObserver():
     def __init__(self, device, tray):
         self._device = device
         self._device_view = None
@@ -917,7 +917,7 @@ class WirelessDeviceObserver(object):
         self._device_view = None
 
 
-class MeshDeviceObserver(object):
+class MeshDeviceObserver():
     def __init__(self, device, tray):
         self._bus = dbus.SystemBus()
         self._device = device
@@ -975,7 +975,7 @@ class MeshDeviceObserver(object):
                 self._remove_device_view()
 
 
-class WiredDeviceObserver(object):
+class WiredDeviceObserver():
     def __init__(self, device, tray):
         self._bus = dbus.SystemBus()
         self._device = device
@@ -1028,7 +1028,7 @@ class WiredDeviceObserver(object):
                 self._device_view = None
 
 
-class GsmDeviceObserver(object):
+class GsmDeviceObserver():
     def __init__(self, device, tray):
         self._device = device
         self._device_view = None
@@ -1043,7 +1043,7 @@ class GsmDeviceObserver(object):
         self._device_view = None
 
 
-class NetworkManagerObserver(object):
+class NetworkManagerObserver():
     def __init__(self, tray):
         self._bus = dbus.SystemBus()
         self._devices = {}

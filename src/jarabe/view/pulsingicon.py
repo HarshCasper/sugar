@@ -28,7 +28,7 @@ _STEP = math.pi / 10  # must be a fraction of pi, for clean caching
 _MINIMAL_ALPHA_VALUE = 0.33
 
 
-class Pulser(object):
+class Pulser():
 
     def __init__(self, icon, interval=_INTERVAL):
         self._pulse_hid = None

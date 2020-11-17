@@ -478,7 +478,7 @@ class ControlPanel(Gtk.Window):
         self._section_toolbar.cancel_button.set_sensitive(cancellable)
 
 
-class ModelWrapper(object):
+class ModelWrapper():
 
     def __init__(self, module):
         self._module = module

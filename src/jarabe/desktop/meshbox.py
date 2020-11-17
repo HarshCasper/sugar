@@ -227,7 +227,7 @@ class DeviceObserver(GObject.GObject):
             dbus_interface=network.NM_WIRELESS_IFACE)
 
 
-class NetworkManagerObserver(object):
+class NetworkManagerObserver():
 
     _SHOW_ADHOC_CONF_DIR = 'org.sugarlabs.network'
     _SHOW_ADHOC_CONF_KEY = 'adhoc'

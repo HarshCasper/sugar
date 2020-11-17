@@ -24,7 +24,7 @@ from sugar3 import mime
 from sugar3.bundle.activitybundle import ActivityBundle
 
 
-class ClipboardObject(object):
+class ClipboardObject():
 
     def __init__(self, object_path, name):
         self._id = object_path
@@ -116,7 +116,7 @@ class ClipboardObject(object):
         return format_
 
 
-class Format(object):
+class Format():
 
     def __init__(self, mime_type, data, on_disk):
         self.owns_disk_data = False

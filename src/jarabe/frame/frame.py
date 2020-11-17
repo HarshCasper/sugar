@@ -55,7 +55,7 @@ class _Animation(animator.Animation):
         self._frame.move(current)
 
 
-class Frame(object):
+class Frame():
 
     def __init__(self):
         logging.debug('STARTUP: Loading the frame')

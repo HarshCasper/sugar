@@ -182,7 +182,7 @@ class JournalActivityDBusService(dbus.service.Object):
         pass
 
 
-class JournalViews(object):
+class JournalViews():
     MAIN = 1
     DETAIL = 2
     PROJECT = 3

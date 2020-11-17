@@ -71,7 +71,7 @@ _non_modal_action_keys = ('F1', 'F2', 'F3', 'F4', 'F5', 'F6')
 _instance = None
 
 
-class KeyHandler(object):
+class KeyHandler():
 
     def __init__(self, frame):
         self._frame = frame

@@ -24,7 +24,7 @@ from jarabe.model import shell
 _RAISE_DELAY = 250
 
 
-class TabbingHandler(object):
+class TabbingHandler():
 
     def __init__(self, frame, modifier):
         self._frame = frame

@@ -22,7 +22,7 @@ _REGISTRY_KEY = 'mime-registry'
 _instance = None
 
 
-class MimeRegistry(object):
+class MimeRegistry():
 
     def __init__(self):
         # TODO move here all mime_type related code from jarabe modules

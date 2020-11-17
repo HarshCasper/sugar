@@ -135,14 +135,14 @@ def _get_name(el):
     return name
 
 
-class Country(object):
+class Country():
     def __init__(self, idx, code, name):
         self.idx = idx
         self.code = code
         self.name = name
 
 
-class Provider(object):
+class Provider():
     @classmethod
     def from_xml(cls, idx, el):
         name = _get_name(el)
@@ -153,7 +153,7 @@ class Provider(object):
         self.name = name
 
 
-class Plan(object):
+class Plan():
     DEFAULT_NUMBER = '*99#'
 
     @classmethod
@@ -179,7 +179,7 @@ class Plan(object):
         self.number = number or self.DEFAULT_NUMBER
 
 
-class CountryCodeParser(object):
+class CountryCodeParser():
     def _load_country_names():
         # Load country code label mapping
         data = {}
@@ -210,7 +210,7 @@ class CountryCodeParser(object):
                            % country_code)
 
 
-class ServiceProvidersParser(object):
+class ServiceProvidersParser():
     def __init__(self):
         # Check service provider database file exists
         try:
@@ -270,7 +270,7 @@ class ServiceProvidersParser(object):
         return plans
 
 
-class ServiceProviders(object):
+class ServiceProviders():
     def __init__(self):
         self._db = ServiceProvidersParser()
         self._settings = Gio.Settings.new(CONF_GSM_DIR)

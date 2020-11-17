@@ -58,7 +58,7 @@ updated = dispatch.Signal()
 deleted = dispatch.Signal()
 
 
-class _Cache(object):
+class _Cache():
 
     __gtype_name__ = 'model_Cache'
 
@@ -83,7 +83,7 @@ class _Cache(object):
         del self._array[key]
 
 
-class BaseResultSet(object):
+class BaseResultSet():
     """Encapsulates the result of a query
     """
 

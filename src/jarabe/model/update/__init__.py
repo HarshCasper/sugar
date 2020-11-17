@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-class BundleUpdate(object):
+class BundleUpdate():
     def __init__(self, bundle_id, name, version, link, size,
                  icon_file_name=None, optional=False):
         self.bundle_id = bundle_id

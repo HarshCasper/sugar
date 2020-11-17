@@ -180,7 +180,7 @@ class _UpdateHTMLParser(HTMLParser):
                                           self.last_optional)
 
 
-class MicroformatUpdater(object):
+class MicroformatUpdater():
     """
     Microformat updater backend. The rough code flow here is:
      1. Query update URL and parse results

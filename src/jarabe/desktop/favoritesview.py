@@ -705,7 +705,7 @@ class OwnerIcon(BuddyIcon):
         self.emit('register-activate')
 
 
-class FavoritesSetting(object):
+class FavoritesSetting():
 
     _DESKTOP_DIR = 'org.sugarlabs.desktop'
     _HOMEVIEWS_KEY = 'homeviews'

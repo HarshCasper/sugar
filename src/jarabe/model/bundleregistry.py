@@ -612,7 +612,7 @@ class BundleRegistry(GObject.GObject):
         return bundles
 
 
-class _InstallQueue(object):
+class _InstallQueue():
     """
     A class to represent a queue of bundles to be installed, and to handle
     execution of each task in the queue. Only for internal bundleregistry use.
@@ -695,7 +695,7 @@ class _InstallQueue(object):
             task.queue_callback(e)
 
 
-class _InstallTask(object):
+class _InstallTask():
     """
     Simple class to represent a bundle installation/upgrade task.
     Only for use internal to InstallQueue.

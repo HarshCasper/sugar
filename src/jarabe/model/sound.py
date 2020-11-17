@@ -28,7 +28,7 @@ _CAPTURE = 1
 _SAVE_TIMEOUT = 500
 
 
-class PlaybackSound(object):
+class PlaybackSound():
     _volume = SugarExt.VolumeAlsa.new(_PLAYBACK)
 
     muted_changed = dispatch.Signal()
@@ -70,7 +70,7 @@ class PlaybackSound(object):
         self.set_volume(settings.get_int('volume'))
 
 
-class CaptureSound(object):
+class CaptureSound():
     _volume = SugarExt.VolumeAlsa.new(_CAPTURE)
 
     muted_changed = dispatch.Signal()
