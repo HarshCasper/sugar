@@ -315,13 +315,12 @@ class BundleRegistry(GObject.GObject):
                 logging.debug("Bundle already known")
                 return installed
             if not force_downgrade and \
-                    NormalizedVersion(installed.get_activity_version()) >= \
-                    NormalizedVersion(bundle.get_activity_version()):
+                                NormalizedVersion(installed.get_activity_version()) >= \
+                                NormalizedVersion(bundle.get_activity_version()):
                 logging.debug('Skip old version for %s', bundle_id)
                 return None
-            else:
-                logging.debug('Upgrade %s', bundle_id)
-                self.remove_bundle(installed.get_path(), emit_signals)
+            logging.debug('Upgrade %s', bundle_id)
+            self.remove_bundle(installed.get_path(), emit_signals)
 
         if set_favorite:
             favorite = not self.is_bundle_hidden(
@@ -417,8 +416,7 @@ class BundleRegistry(GObject.GObject):
         if key in self._favorite_bundles[_DEFAULT_VIEW]:
             data = self._favorite_bundles[_DEFAULT_VIEW][key]
             return data['favorite'] is False
-        else:
-            return bundle_id in self._hidden_activities
+        return bundle_id in self._hidden_activities
 
     def is_activity_protected(self, bundle_id):
         return bundle_id in self._protected_activities
@@ -446,11 +444,10 @@ class BundleRegistry(GObject.GObject):
         """
         key = self._get_favorite_key(bundle_id, version)
         if key not in self._favorite_bundles[favorite_view] or \
-                'position' not in self._favorite_bundles[favorite_view][key]:
+                        'position' not in self._favorite_bundles[favorite_view][key]:
             return (-1, -1)
-        else:
-            return \
-                tuple(self._favorite_bundles[favorite_view][key]['position'])
+        return \
+                        tuple(self._favorite_bundles[favorite_view][key]['position'])
 
     def _write_favorites_file(self, favorite_view):
         if favorite_view == 0:

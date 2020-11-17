@@ -244,8 +244,7 @@ class BaseListView(Gtk.Bin):
             return None
         if self._query['mountpoints'] == ['/']:
             return not object_id.startswith('/')
-        else:
-            return object_id.startswith(self._query['mountpoints'][0])
+        return object_id.startswith(self._query['mountpoints'][0])
 
     def _add_columns(self):
         if self._enable_multi_operations:
