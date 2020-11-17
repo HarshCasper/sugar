@@ -182,9 +182,6 @@ class OwnerBuddyModel(BaseBuddyModel):
     def __error_handler_cb(error):
         raise RuntimeError(error)
 
-    def __connection_added_cb(self, conn_watcher, connection):
-        self._sync_properties_on_connection(connection)
-
     def is_owner(self):
         return True
 
