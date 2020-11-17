@@ -144,5 +144,4 @@ class Brightness(GObject.GObject):
     def get_step_amount(self):
         if self.get_max_brightness() < self._STEPS:
             return 1
-        else:
-            return self.get_max_brightness() / self._STEPS
+        return self.get_max_brightness() / self._STEPS

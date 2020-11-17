@@ -1087,8 +1087,7 @@ def set_palette_list(palette_list):
                                          (ny + 1) * menuitem_height)
         scrolled_window.add_with_viewport(grid)
         return scrolled_window
-    else:
-        return grid
+    return grid
 
 
 class AddNewBar(Gtk.Box):
