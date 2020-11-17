@@ -487,7 +487,8 @@ class Ppp(object):
     def __init__(self):
         pass
 
-    def get_dict(self):
+    @staticmethod
+    def get_dict():
         ppp = {}
         return ppp
 
@@ -606,10 +607,12 @@ class SecretAgent(dbus.service.Object):
                        reply_handler=self._register_reply_cb,
                        error_handler=self._register_error_cb)
 
-    def _register_reply_cb(self):
+    @staticmethod
+    def _register_reply_cb():
         logging.debug("SecretAgent registered")
 
-    def _register_error_cb(self, error):
+    @staticmethod
+    def _register_error_cb(error):
         logging.error("Failed to register SecretAgent: %s", error)
 
     @dbus.service.method(NM_SECRET_AGENT_IFACE,
@@ -727,7 +730,8 @@ class AccessPoint(GObject.GObject):
         self._initialized = True
         self.emit('props-changed', old_hash)
 
-    def _get_all_props_error_cb(self, err):
+    @staticmethod
+    def _get_all_props_error_cb(err):
         logging.error('Error getting the access point properties: %s', err)
 
     def _ap_properties_changed_cb(self, properties):

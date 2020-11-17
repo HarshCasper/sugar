@@ -209,7 +209,8 @@ class Downloader(GObject.GObject):
                                                   None, self.__write_async_cb,
                                                   None)
 
-    def _get_temp_file_path(self, uri):
+    @staticmethod
+    def _get_temp_file_path(uri):
         # TODO: Should we use the HTTP headers for the file name?
         scheme_, netloc_, path, params_, query_, fragment_ = \
             urlparse(uri)

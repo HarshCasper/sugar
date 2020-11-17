@@ -101,11 +101,13 @@ class NotificationService(dbus.service.Object):
         self.notification_cancelled.send(self, notification_id=notification_id)
 
     @dbus.service.method(_DBUS_IFACE, in_signature='', out_signature='as')
-    def GetCapabilities(self):
+    @staticmethod
+    def GetCapabilities():
         return []
 
     @dbus.service.method(_DBUS_IFACE, in_signature='', out_signature='sss')
-    def GetServerInformation(self, name, vendor, version):
+    @staticmethod
+    def GetServerInformation(name, vendor, version):
         return 'Sugar Shell', 'Sugar', config.version
 
     @dbus.service.signal(_DBUS_IFACE, signature='uu')

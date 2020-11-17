@@ -76,7 +76,8 @@ class ServiceProvidersParserTest(unittest.TestCase):
                 for plan in plans:
                     self.assertEqual(plan.tag, 'apn')
 
-    def get_providers(self, country_xml):
+    @staticmethod
+    def get_providers(country_xml):
         """Given a country element find all provider with a gsm tag."""
         idx = 0
         for provider in country_xml.findall('provider'):
@@ -84,7 +85,8 @@ class ServiceProvidersParserTest(unittest.TestCase):
                 yield idx, provider
                 idx = idx + 1
 
-    def get_plans(self, provider_xml):
+    @staticmethod
+    def get_plans(provider_xml):
         """Given a provider element find all apn elements."""
         for idx, plan in enumerate(provider_xml.findall('.//apn')):
             yield idx, plan

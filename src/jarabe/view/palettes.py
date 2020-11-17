@@ -162,7 +162,8 @@ class CurrentActivityPalette(BasePalette):
         GLib.timeout_add(4500, self.__kill_cb, pid, signal.SIGKILL)
         self.emit('done')
 
-    def __kill_cb(self, pid, sig):
+    @staticmethod
+    def __kill_cb(pid, sig):
         try:
             os.kill(pid, sig)
         finally:
@@ -314,7 +315,8 @@ class VolumePalette(Palette):
         self._mount.unmount_with_operation(flags, mount_operation, cancellable,
                                            self.__unmount_cb, user_data)
 
-    def __unmount_cb(self, mount, result, user_data):
+    @staticmethod
+    def __unmount_cb(mount, result, user_data):
         logging.debug('__unmount_cb %r %r', mount, result)
         mount.unmount_with_operation_finish(result)
 

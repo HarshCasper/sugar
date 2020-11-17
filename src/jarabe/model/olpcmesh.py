@@ -89,7 +89,8 @@ class OlpcMeshManager(object):
         eth_device_o = props.Get(network.NM_OLPC_MESH_IFACE, 'Companion')
         return self._bus.get_object(network.NM_SERVICE, eth_device_o)
 
-    def _have_configured_connections(self):
+    @staticmethod
+    def _have_configured_connections():
         return len(network.get_connections().get_list()) > 0
 
     def _start_automesh_timer(self):
@@ -101,7 +102,8 @@ class OlpcMeshManager(object):
             GLib.source_remove(self._idle_source)
         self._idle_source = GLib.timeout_add_seconds(10, self._idle_check)
 
-    def __get_state_error_cb(self, err):
+    @staticmethod
+    def __get_state_error_cb(err):
         logging.debug('Error getting the device state: %s', err)
 
     def __get_mesh_state_reply_cb(self, state):
