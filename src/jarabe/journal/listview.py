@@ -654,9 +654,8 @@ class BaseListView(Gtk.Bin):
                                            cel_rect.height)
             if path == end_path:
                 break
-            else:
-                next_iter = tree_model.iter_next(tree_model.get_iter(path))
-                path = tree_model.get_path(next_iter)
+            next_iter = tree_model.iter_next(tree_model.get_iter(path))
+            path = tree_model.get_path(next_iter)
 
     def _set_dirty(self):
         if self._fully_obscured or self._updates_disabled:
