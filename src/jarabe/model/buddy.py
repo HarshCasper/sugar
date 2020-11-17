@@ -174,10 +174,12 @@ class OwnerBuddyModel(BaseBuddyModel):
                 reply_handler=self.__set_properties_cb,
                 error_handler=self.__error_handler_cb)
 
-    def __set_properties_cb(self):
+    @staticmethod
+    def __set_properties_cb():
         logging.debug('__set_properties_cb')
 
-    def __error_handler_cb(self, error):
+    @staticmethod
+    def __error_handler_cb(error):
         raise RuntimeError(error)
 
     def __connection_added_cb(self, conn_watcher, connection):

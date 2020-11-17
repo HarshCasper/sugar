@@ -121,10 +121,12 @@ class ListModel(GObject.GObject, Gtk.TreeModel, Gtk.TreeDragSource):
     def get_metadata(self, path):
         return model.get(self[path][ListModel.COLUMN_UID])
 
-    def do_get_n_columns(self):
+    @staticmethod
+    def do_get_n_columns():
         return len(ListModel._COLUMN_TYPES)
 
-    def do_get_column_type(self, index):
+    @staticmethod
+    def do_get_column_type(index):
         return ListModel._COLUMN_TYPES[index]
 
     def do_iter_n_children(self, iterator):
@@ -239,14 +241,17 @@ class ListModel(GObject.GObject, Gtk.TreeModel, Gtk.TreeDragSource):
 
         return self._cached_row[column]
 
-    def do_iter_nth_child(self, parent_iter, n):
+    @staticmethod
+    def do_iter_nth_child(parent_iter, n):
         return (False, None)
 
-    def do_get_path(self, iterator):
+    @staticmethod
+    def do_get_path(iterator):
         treepath = Gtk.TreePath((iterator.user_data,))
         return treepath
 
-    def do_get_iter(self, path):
+    @staticmethod
+    def do_get_iter(path):
         idx = path.get_indices()[0]
         iterator = Gtk.TreeIter()
         iterator.user_data = idx
@@ -261,16 +266,20 @@ class ListModel(GObject.GObject, Gtk.TreeModel, Gtk.TreeDragSource):
             iterator.user_data = idx
             return (True, iterator)
 
-    def do_get_flags(self):
+    @staticmethod
+    def do_get_flags():
         return Gtk.TreeModelFlags.ITERS_PERSIST | Gtk.TreeModelFlags.LIST_ONLY
 
-    def do_iter_children(self, iterator):
+    @staticmethod
+    def do_iter_children(iterator):
         return (False, iterator)
 
-    def do_iter_has_child(self, iterator):
+    @staticmethod
+    def do_iter_has_child(iterator):
         return False
 
-    def do_iter_parent(self, iterator):
+    @staticmethod
+    def do_iter_parent(iterator):
         return (False, Gtk.TreeIter())
 
     def do_drag_data_get(self, path, selection):

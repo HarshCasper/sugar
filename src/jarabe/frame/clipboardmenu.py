@@ -177,7 +177,8 @@ class ClipboardMenu(Palette):
         jobject = self._copy_to_journal()
         jobject.destroy()
 
-    def _write_to_temp_file(self, data):
+    @staticmethod
+    def _write_to_temp_file(data):
         tmp_dir = os.path.join(env.get_profile_path(), 'data')
         f, file_path = tempfile.mkstemp(dir=tmp_dir)
         try:

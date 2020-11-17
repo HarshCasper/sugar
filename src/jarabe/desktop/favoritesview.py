@@ -290,7 +290,8 @@ class FavoritesView(ViewContainer):
         else:
             return False
 
-    def __drag_data_received_cb(self, widget, context, x, y, selection_data,
+    @staticmethod
+    def __drag_data_received_cb(widget, context, x, y, selection_data,
                                 info, time):
         Gdk.drop_finish(context, success=True, time_=time)
 
@@ -474,7 +475,8 @@ class ActivityIcon(CanvasIcon):
         self._journal_entries = checked_entries
         self._update()
 
-    def __get_last_activity_error_handler_cb(self, error):
+    @staticmethod
+    def __get_last_activity_error_handler_cb(error):
         logging.error('Error retrieving most recent activities: %r', error)
 
     def _update(self):

@@ -170,7 +170,8 @@ class Frame(SectionView):
         self._trigger_size_slider.queue_draw()
         return False
 
-    def __corner_delay_format_cb(self, scale, value):
+    @staticmethod
+    def __corner_delay_format_cb(scale, value):
         if value == _MAX_DELAY:
             return _never
         elif value == 0:
@@ -193,7 +194,8 @@ class Frame(SectionView):
         self._trigger_size_slider.queue_draw()
         return False
 
-    def __edge_delay_format_cb(self, scale, value):
+    @staticmethod
+    def __edge_delay_format_cb(scale, value):
         if value == _MAX_DELAY:
             return _never
         elif value == 0:

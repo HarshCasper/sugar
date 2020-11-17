@@ -142,7 +142,8 @@ class IconView(Gtk.Bin):
         uid = icon_view.get_model()[path][IconModel.COLUMN_UID]
         self.emit('entry-activated', uid)
 
-    def _thumb_data_func(self, view, cell, store, i, data):
+    @staticmethod
+    def _thumb_data_func(view, cell, store, i, data):
         preview_data = store.get_value(i, IconModel.COLUMN_PREVIEW)
         cell.props.pixbuf = get_preview_pixbuf(preview_data)
 
