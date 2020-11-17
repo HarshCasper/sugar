@@ -604,14 +604,6 @@ class WirelessDeviceView(ToolButton):
     def __deactivate_connection_cb(self, palette, data=None):
         network.disconnect_access_points([self._active_ap_op])
 
-    @staticmethod
-    def __activate_reply_cb(connection):
-        logging.debug('Network created: %s', connection)
-
-    @staticmethod
-    def __activate_error_cb(err):
-        logging.debug('Failed to create network: %s', err)
-
 
 class OlpcMeshDeviceView(ToolButton):
     _ICON_NAME = 'network-mesh'
@@ -675,10 +667,6 @@ class OlpcMeshDeviceView(ToolButton):
     @staticmethod
     def __get_active_channel_error_cb(err):
         logging.error('Error getting the active channel: %s', err)
-
-    def __state_changed_cb(self, new_state, old_state, reason):
-        self._device_state = new_state
-        self._update()
 
     def __wireless_properties_changed_cb(self, properties):
         if 'ActiveChannel' in properties:
