@@ -52,7 +52,8 @@ class Browser():
         toolbar.connect('forward-clicked', self.__forward_cb)
         self._webview.show()
 
-    def __app_scheme_cb(self, request, user_data):
+    @staticmethod
+    def __app_scheme_cb(request, user_data):
         path = request.get_path()
         if path.find('_images') > -1:
             if path.find('/%s/_images/' % _get_current_language()) > -1:
@@ -97,5 +98,6 @@ class Browser():
     def get_widget(self):
         return self._webview
 
-    def get_local_method(self):
+    @staticmethod
+    def get_local_method():
         return 'help://'

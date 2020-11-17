@@ -50,7 +50,8 @@ class Account():
         '''
         raise NotImplementedError
 
-    def get_shared_journal_entry(self):
+    @staticmethod
+    def get_shared_journal_entry():
         ''' get_shared_journal_entry returns a class used to
         intermediate between the online service and the Sugar UI
         elements.

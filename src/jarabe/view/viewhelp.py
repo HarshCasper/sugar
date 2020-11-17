@@ -233,10 +233,12 @@ class ViewHelp(Gtk.Window):
             window.set_transient_for(parent)
         shell.get_model().push_modal()
 
-    def __hide_cb(self, widget):
+    @staticmethod
+    def __hide_cb(widget):
         shell.get_model().pop_modal()
 
-    def _get_help_file(self, language, help_file):
+    @staticmethod
+    def _get_help_file(language, help_file):
         activity_path = _get_help_activity_path()
         # check if exist a page for the language selected
         # if not, use the default page

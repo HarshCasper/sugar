@@ -28,25 +28,32 @@ data_dir = os.path.join(tests_dir, "data")
 
 
 class MockActivityInfo:
-    def get_bundle_id(self):
+    @staticmethod
+    def get_bundle_id():
         return "mock"
 
-    def get_activity_version(self):
+    @staticmethod
+    def get_activity_version():
         return 1
 
-    def get_is_favorite(self):
+    @staticmethod
+    def get_is_favorite():
         return False
 
-    def get_icon(self):
+    @staticmethod
+    def get_icon():
         return os.path.join(data_dir, "activity.svg")
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "mock"
 
-    def get_path(self):
+    @staticmethod
+    def get_path():
         return "mock"
 
-    def is_user_activity(self):
+    @staticmethod
+    def is_user_activity():
         return True
 
 

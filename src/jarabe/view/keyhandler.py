@@ -103,7 +103,8 @@ class KeyHandler(object):
 
         self._key_grabber.grab_keys(list(_actions_table.keys()))
 
-    def _change_volume(self, step=None, value=None):
+    @staticmethod
+    def _change_volume(step=None, value=None):
         if step is not None:
             volume = sound.get_volume() + step
         elif value is not None:
@@ -120,23 +121,28 @@ class KeyHandler(object):
     def handle_next_window(self, event_time):
         self._tabbing_handler.next_activity(event_time)
 
-    def handle_close_window(self, event_time):
+    @staticmethod
+    def handle_close_window(event_time):
         active_activity = shell.get_model().get_active_activity()
         if active_activity.is_journal():
             return
 
         active_activity.stop()
 
-    def handle_zoom_mesh(self, event_time):
+    @staticmethod
+    def handle_zoom_mesh(event_time):
         shell.get_model().set_zoom_level(ShellModel.ZOOM_MESH, event_time)
 
-    def handle_zoom_group(self, event_time):
+    @staticmethod
+    def handle_zoom_group(event_time):
         shell.get_model().set_zoom_level(ShellModel.ZOOM_GROUP, event_time)
 
-    def handle_zoom_home(self, event_time):
+    @staticmethod
+    def handle_zoom_home(event_time):
         shell.get_model().set_zoom_level(ShellModel.ZOOM_HOME, event_time)
 
-    def handle_zoom_activity(self, event_time):
+    @staticmethod
+    def handle_zoom_activity(event_time):
         shell.get_model().set_zoom_level(ShellModel.ZOOM_ACTIVITY, event_time)
 
     def handle_volume_max(self, event_time):
@@ -145,7 +151,8 @@ class KeyHandler(object):
     def handle_volume_min(self, event_time):
         self._change_volume(value=0)
 
-    def handle_volume_mute(self, event_time):
+    @staticmethod
+    def handle_volume_mute(event_time):
         if sound.get_muted() is True:
             sound.set_muted(False)
         else:
@@ -160,13 +167,15 @@ class KeyHandler(object):
     def handle_frame(self, event_time):
         self._frame.notify_key_press()
 
-    def handle_logout(self, event_time):
+    @staticmethod
+    def handle_logout(event_time):
         if "SUGAR_DEVELOPER" in os.environ:
             session_manager = session.get_session_manager()
             session_manager.logout()
             GLib.timeout_add_seconds(3, session_manager.shutdown_completed)
 
-    def handle_open_search(self, event_time):
+    @staticmethod
+    def handle_open_search(event_time):
         journalactivity.get_journal().show_journal()
 
     def handle_open_controlpanel(self, event_time):
@@ -192,7 +201,8 @@ class KeyHandler(object):
         panel.connect('hide', activity.pop_shell_window)
         panel.show()
 
-    def handle_dump_ui_tree(self, event_time):
+    @staticmethod
+    def handle_dump_ui_tree(event_time):
         print(uitree.get_root().dump())
 
     def _key_pressed_cb(self, grabber, keycode, state, event_time):

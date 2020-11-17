@@ -281,7 +281,8 @@ class ViewSource(Gtk.Window):
     def remove_alert(self, alert):
         self._vbox.remove(alert)
 
-    def _calculate_char_width(self, char_count):
+    @staticmethod
+    def _calculate_char_width(char_count):
         widget = Gtk.Label(label='')
         context = widget.get_pango_context()
         pango_font = context.load_font(_SOURCE_FONT)
@@ -687,7 +688,8 @@ class FileViewer(Gtk.ScrolledWindow):
             file_path = model.get_value(tree_iter, 1)
         self.emit('file-selected', file_path)
 
-    def __cursor_changed_cb(self, treeview):
+    @staticmethod
+    def __cursor_changed_cb(treeview):
         selection = treeview.get_selection()
         if selection is None:
             return

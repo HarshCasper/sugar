@@ -56,7 +56,8 @@ class UIService(dbus.service.Object):
 
     @dbus.service.method(_DBUS_SHELL_IFACE,
                          in_signature='s', out_signature='s')
-    def GetBundlePath(self, bundle_id):
+    @staticmethod
+    def GetBundlePath(bundle_id):
         bundle = bundleregistry.get_registry().get_bundle(bundle_id)
         if bundle:
             return bundle.get_path()
@@ -79,10 +80,12 @@ class UIService(dbus.service.Object):
 
     @dbus.service.method(_DBUS_SHELL_IFACE,
                          in_signature='ss', out_signature='')
-    def NotifyLaunch(self, bundle_id, activity_id):
+    @staticmethod
+    def NotifyLaunch(bundle_id, activity_id):
         shell.get_model().notify_launch(activity_id, bundle_id)
 
     @dbus.service.method(_DBUS_SHELL_IFACE,
                          in_signature='s', out_signature='')
-    def NotifyLaunchFailure(self, activity_id):
+    @staticmethod
+    def NotifyLaunchFailure(activity_id):
         shell.get_model().notify_launch_failed(activity_id)

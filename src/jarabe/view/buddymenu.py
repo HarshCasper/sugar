@@ -142,7 +142,8 @@ class BuddyMenu(Palette):
         jarabe.desktop.homewindow.get_instance().add_alert(alert)
         alert.show()
 
-    def __quit_accept_cb(self, alert, response_id):
+    @staticmethod
+    def __quit_accept_cb(alert, response_id):
         jarabe.desktop.homewindow.get_instance().remove_alert(alert)
         if response_id is Gtk.ResponseType.CANCEL:
             get_session_manager().cancel_shutdown()
@@ -159,7 +160,8 @@ class BuddyMenu(Palette):
     def __shutdown_activate_cb(self, menu_item):
         self._quit(get_session_manager().shutdown)
 
-    def __controlpanel_activate_cb(self, menu_item):
+    @staticmethod
+    def __controlpanel_activate_cb(menu_item):
         # hide the frame when control panel is shown
         import jarabe.frame
         frame = jarabe.frame.get_view()

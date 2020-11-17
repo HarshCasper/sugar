@@ -64,7 +64,8 @@ class RefreshMenu(MenuItem):
         MenuItem.__init__(self, text_label=ACCOUNT_NAME)
         self.show()
 
-    def set_metadata(self, metadata):
+    @staticmethod
+    def set_metadata(metadata):
         return
 
 

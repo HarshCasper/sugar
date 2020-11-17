@@ -65,11 +65,13 @@ class TelepathyClient(dbus.service.Object):
         self.got_channel = dispatch.Signal()
         self.got_dispatch_operation = dispatch.Signal()
 
-    def __get_filters_handler_cb(self):
+    @staticmethod
+    def __get_filters_handler_cb():
         filter_dict = dbus.Dictionary({}, signature='sv')
         return dbus.Array([filter_dict], signature='a{sv}')
 
-    def __get_filters_approver_cb(self):
+    @staticmethod
+    def __get_filters_approver_cb():
         activity_invitation = {
             CHANNEL + '.ChannelType': CHANNEL_TYPE_TEXT,
             CHANNEL + '.TargetHandleType': CONNECTION_HANDLE_TYPE_ROOM,
@@ -107,7 +109,8 @@ class TelepathyClient(dbus.service.Object):
 
     @dbus.service.method(dbus_interface=CLIENT_INTERFACE_REQUESTS,
                          in_signature='oa{sv}', out_signature='')
-    def AddRequest(self, request, properties):
+    @staticmethod
+    def AddRequest(request, properties):
         logging.debug('AddRequest\n%r\n%r', request, properties)
 
     @dbus.service.method(dbus_interface=CLIENT_APPROVER,

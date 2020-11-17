@@ -103,7 +103,8 @@ class TabbingHandler(object):
             GLib.source_remove(self._timeout)
             self._timeout = None
 
-    def _activate_current(self, event_time):
+    @staticmethod
+    def _activate_current(event_time):
         home_model = shell.get_model()
         activity = home_model.get_tabbing_activity()
         if activity and activity.get_window():
@@ -155,7 +156,8 @@ class TabbingHandler(object):
         else:
             self._activate_next_activity(event_time)
 
-    def _activate_next_activity(self, event_time):
+    @staticmethod
+    def _activate_next_activity(event_time):
         next_activity = shell.get_model().get_next_activity()
         if next_activity:
             next_activity.get_window().activate(event_time)

@@ -330,7 +330,8 @@ class Activity(GObject.GObject):
     def _set_active_success(self):
         pass
 
-    def _set_active_error(self, err):
+    @staticmethod
+    def _set_active_error(err):
         logging.error('set_active() failed: %s', err)
 
     def _set_launch_status(self, value):
