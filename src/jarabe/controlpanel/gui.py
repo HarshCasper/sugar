@@ -336,7 +336,8 @@ class ControlPanel(Gtk.Window):
         """
         self._section_view.auto_close = True
 
-    def _get_options(self):
+    @staticmethod
+    def _get_options():
         """Get the available option information from the extensions
         """
         options = {}

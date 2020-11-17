@@ -298,7 +298,8 @@ class ServiceProviders(object):
 
         self._current_plan = plan_idx
 
-    def _guess_country_code(self):
+    @staticmethod
+    def _guess_country_code():
         """Return country based on locale lang attribute."""
         language_code = locale.getdefaultlocale()[0]
         if language_code is None:

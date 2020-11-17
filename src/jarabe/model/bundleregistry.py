@@ -158,7 +158,8 @@ class BundleRegistry(GObject.GObject):
                     if path is not None:
                         self.add_bundle(path)
 
-    def _load_mime_defaults(self):
+    @staticmethod
+    def _load_mime_defaults():
         defaults = {}
 
         f = open(os.environ["SUGAR_MIME_DEFAULTS"], 'r')
@@ -172,7 +173,8 @@ class BundleRegistry(GObject.GObject):
 
         return defaults
 
-    def _get_favorite_key(self, bundle_id, version):
+    @staticmethod
+    def _get_favorite_key(bundle_id, version):
         """We use a string as a composite key for the favorites dictionary
         because JSON doesn't support tuples and python won't accept a list
         as a dictionary key.
@@ -499,7 +501,8 @@ class BundleRegistry(GObject.GObject):
             raise result[0]
         return result[0]
 
-    def _sync_install_cb(self, bundle, result, user_data):
+    @staticmethod
+    def _sync_install_cb(bundle, result, user_data):
         # Async callback for install()
         user_data[0] = result
 
@@ -579,7 +582,8 @@ class BundleRegistry(GObject.GObject):
             new_bundle = alt_bundles[0]
             self.add_bundle(new_bundle.get_path())
 
-    def get_system_bundles(self, bundle_id):
+    @staticmethod
+    def get_system_bundles(bundle_id):
         """
         Searches for system bundles (eg. those in /usr/share/sugar/activities)
         with a given bundle id.
